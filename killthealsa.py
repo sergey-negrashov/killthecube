@@ -3,7 +3,7 @@
 ##
 ## The script opens an ALSA pcm for sound capture. Set
 ## various attributes of the capture, and reads in a loop,
-## Then prints the volume.
+## Then displays it on the LED cube.
 ##
 ## To test it out, run it and shout at your microphone:
 
@@ -56,6 +56,7 @@ while True:
 
         if(sampleMax != sampleMin):
             dumb =  int(4*(sample - sampleMin)/(sampleMax - sampleMin))
+        #pack and send.
         if dumb == 0:
             sock.sendto(pack("Q", 0x0),(UDP_IP, UDP_PORT)) 
             print "";
